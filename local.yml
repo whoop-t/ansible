@@ -2,17 +2,14 @@
 - hosts: localhost
   connection: local
   become: true
-
+  pre_tasks:
+  - name: Update Apt
+    become: true
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
   tasks:
-  - name: install neovim
-    package:
-      name: 
-        - neovim
-
-  - name: Install oh-my-zsh
-    shell:
-      cmd: "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  - name: Change shell
-    user:
-      name: tommymallis
-      shell: /bin/zsh 
+    - include: tasks/nvim-setup.yml
+    - include: tasks/zsh-setup.yml
+    - include: tasks/node-setup.yml
