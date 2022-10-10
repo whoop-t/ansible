@@ -13,3 +13,8 @@
   - name: move nvim appimage to bin
     become: true
     shell: mv ./nvim.appimage /usr/local/bin/nvim
+  - name: Install AstroNvim
+    become_user: tommymallis
+    git:
+      repo: 'https://github.com/AstroNvim/AstroNvim'
+      dest: '~/.config/nvim'
