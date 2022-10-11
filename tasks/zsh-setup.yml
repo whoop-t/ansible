@@ -31,6 +31,7 @@
       dest: "~/.oh-my-zsh/themes/powerlevel10k"
 
   - name: Remove .zshrc to aviod stow conflicts
+    become_user: tommymallis
     file:
       path: ~/.zshrc
       state: absent
