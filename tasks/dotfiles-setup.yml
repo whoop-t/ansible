@@ -1,8 +1,8 @@
   - name: Installing stow
     apt: name=stow
   - name: Cloning .dotfiles
+    become_user: tommymallis
     ansible.builtin.git:
-      become_user: tommymallis
       repo: 'https://github.com/whoop-t/.dotfiles.git'
       dest: "~/.dotfiles"
   - name: Stow dotfiles
