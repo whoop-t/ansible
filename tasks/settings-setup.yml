@@ -1,0 +1,6 @@
+  - name: copy wallpaper file
+    copy:
+      src: files/spacebg.jpg
+      dest: /usr/share/backgrounds/spacebg.jpg
+      owner: root
+      group: root
