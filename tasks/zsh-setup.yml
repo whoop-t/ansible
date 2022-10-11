@@ -29,3 +29,8 @@
     ansible.builtin.git:
       repo: 'https://github.com/romkatv/powerlevel10k.git'
       dest: "~/.oh-my-zsh/themes/powerlevel10k"
+
+  - name: Remove .zshrc to aviod stow conflicts
+    file:
+      path: ~/.zshrc
+      state: absent
