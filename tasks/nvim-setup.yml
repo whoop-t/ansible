@@ -2,9 +2,13 @@
     file:
       path: /usr/local/bin/nvim
       state: absent
+  - name: Remove AstroNvim
+    file:
+      path: ~/.config/nvim
+      state: absent
   - name: Install neovim appimage
     shell: curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  - name: Give insecure permissions to an existing file
+  - name: Give permissions to nvim
     file:
       path: ./nvim.appimage
       owner: root
